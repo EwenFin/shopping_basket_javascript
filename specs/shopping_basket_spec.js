@@ -50,4 +50,14 @@ describe("Shopping Basket", function(){
     assert.strictEqual( 600 , shoppingBasket.getTotalPrice())
   })
 
+  it("get 10% discount", function(){
+    shoppingBasket.addToBasket(item1);
+    shoppingBasket.addToBasket(item2);
+    shoppingBasket.addToBasket(item2);
+    shoppingBasket.addToBasket(item2);
+    shoppingBasket.addToBasket(item2);
+    assert.strictEqual(1890, shoppingBasket.getTotalPrice())
+
+  })
+
 })

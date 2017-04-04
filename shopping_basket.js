@@ -16,9 +16,14 @@ ShoppingBasket.prototype = {
   },
 
   getTotalPrice: function() {
+    var discount = 0;
     var totalPrice = 0;
     for(var i=0; i < this.contents.length; i++){
       totalPrice = totalPrice + this.contents[i].price;
+    }
+    if(totalPrice > 2000){
+      totalPrice = totalPrice - (totalPrice/10);
+      return totalPrice;
     }
     return totalPrice;
   }
