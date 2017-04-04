@@ -1,5 +1,6 @@
 var assert = require("assert");
 var Item = require("../item.js");
+var Discount = require("../discount.js");
 var ShoppingBasket = require("../shopping_basket.js");
 
 describe("Shopping Basket", function(){
@@ -14,7 +15,6 @@ describe("Shopping Basket", function(){
     item1 = new Item("Milk" , 100 , false);
     item2 = new Item("Beer", 500 , false );
     item3 = new Item("Cookies" , 200, true );
-
   })
 
   it("Basket should be empty at start", function(){
@@ -31,7 +31,6 @@ describe("Shopping Basket", function(){
     shoppingBasket.addToBasket(item2);
     shoppingBasket.addToBasket(item3);
     assert.strictEqual(3,shoppingBasket.contents.length)
-
   })
 
   it("Can remove items from basket", function(){
@@ -39,6 +38,16 @@ describe("Shopping Basket", function(){
     shoppingBasket.addToBasket(item2);
     shoppingBasket.removeFromBasket(item1);
     assert.strictEqual(1,shoppingBasket.contents.length)
+  })
+
+  it("Can get price of an item" , function(){
+    assert.strictEqual( 100 , item1.price )
+  })
+
+  it("Can get value of items in basket", function(){
+    shoppingBasket.addToBasket(item1);
+    shoppingBasket.addToBasket(item2);
+    assert.strictEqual( 600 , shoppingBasket.getTotalPrice())
   })
 
 })
