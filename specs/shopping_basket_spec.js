@@ -26,4 +26,12 @@ describe("Shopping Basket", function(){
     assert.strictEqual(1,shoppingBasket.contents.length)
   })
 
+  it("Basket can have multiple Items", function(){
+    shoppingBasket.addToBasket(item1);
+    shoppingBasket.addToBasket(item2);
+    shoppingBasket.addToBasket(item3);
+    assert.strictEqual(3,shoppingBasket.contents.length)
+
+  })
+
 })
