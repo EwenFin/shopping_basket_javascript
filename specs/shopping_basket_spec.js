@@ -34,4 +34,11 @@ describe("Shopping Basket", function(){
 
   })
 
+  it("Can remove items from basket", function(){
+    shoppingBasket.addToBasket(item1);
+    shoppingBasket.addToBasket(item2);
+    shoppingBasket.removeFromBasket(item1);
+    assert.strictEqual(1,shoppingBasket.contents.length)
+  })
+
 })
